@@ -30,7 +30,7 @@ build: submodule
 	cd $(BUILD_DIR) && CC=musl-gcc CFLAGS='$(CFLAGS)' ./configure $(PATH_FLAGS)
 	cd $(BUILD_DIR) && make install
 	mkdir -p $(RELEASE_DIR)/usr/share/licenses/$(PACKAGE)
-	cp $(BUILD_DIR)/COPYING* $(RELEASE_DIR)/usr/share/licenses/$(PACKAGE)/
+	cp ZLIB_LICENSE $(RELEASE_DIR)/usr/share/licenses/$(PACKAGE)/LICENSE
 	cd $(RELEASE_DIR) && tar -czvf $(RELEASE_FILE) *
 
 version:
