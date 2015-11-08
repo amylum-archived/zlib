@@ -29,6 +29,7 @@ build: submodule
 	cp -R upstream $(BUILD_DIR)
 	cd $(BUILD_DIR) && CC=musl-gcc CFLAGS='$(CFLAGS)' ./configure $(PATH_FLAGS)
 	cd $(BUILD_DIR) && make install
+	mv $(RELEASE_DIR)/share $(RELEASE_DIR)/usr/
 	mkdir -p $(RELEASE_DIR)/usr/share/licenses/$(PACKAGE)
 	cp ZLIB_LICENSE $(RELEASE_DIR)/usr/share/licenses/$(PACKAGE)/LICENSE
 	cd $(RELEASE_DIR) && tar -czvf $(RELEASE_FILE) *
