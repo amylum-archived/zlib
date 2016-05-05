@@ -4,7 +4,7 @@ ORG = amylum
 BUILD_DIR = /tmp/$(PACKAGE)-build
 RELEASE_DIR = /tmp/$(PACKAGE)-release
 RELEASE_FILE = /tmp/$(PACKAGE).tar.gz
-PATH_FLAGS = --prefix=$(RELEASE_DIR) --libdir=$(RELEASE_DIR)/usr/lib --includedir=$(RELEASE_DIR)/usr/include
+PATH_FLAGS = --prefix=/usr
 CFLAGS = -fPIC
 
 PACKAGE_VERSION = $$(git --git-dir=upstream/.git describe --tags | sed 's/v//')
@@ -28,7 +28,7 @@ build: submodule
 	rm -rf $(BUILD_DIR)
 	cp -R upstream $(BUILD_DIR)
 	cd $(BUILD_DIR) && CC=musl-gcc CFLAGS='$(CFLAGS)' ./configure $(PATH_FLAGS)
-	cd $(BUILD_DIR) && make install
+	cd $(BUILD_DIR) && make DESTDIR=$(RELEASE_DIR) install
 	mv $(RELEASE_DIR)/share $(RELEASE_DIR)/usr/
 	mkdir -p $(RELEASE_DIR)/usr/share/licenses/$(PACKAGE)
 	cp ZLIB_LICENSE $(RELEASE_DIR)/usr/share/licenses/$(PACKAGE)/LICENSE
