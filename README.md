@@ -1,6 +1,8 @@
 zlib
 ==========
 
+[![Build Status](https://img.shields.io/circleci/project/amylum/zlib.svg)](https://circleci.com/gh/amylum/zlib)
+[![GitHub release](https://img.shields.io/github/release/amylum/zlib.svg)](https://github.com/amylum/zlib/releases)
 [![zlib licensed](http://img.shields.io/badge/license-zlib-green.svg)](https://tldrlegal.com/license/zlib-libpng-license-(zlib))
 
 Package repo for [zlib](http://www.zlib.net/)

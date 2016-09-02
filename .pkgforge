@@ -1,0 +1,20 @@
+name 'zlib'
+org 'amylum'
+
+configure_flags(
+  prefix: '/usr',
+)
+
+harden
+
+build do
+  configure
+  make
+  install
+end
+
+patch 'license.patch'
+
+test do
+  # TODO: add tests
+end
