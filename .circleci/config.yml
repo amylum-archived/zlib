@@ -8,9 +8,10 @@ jobs:
         PKGFORGE_STATEFILE: '/tmp/pkgforge'
     steps:
     - checkout
+    - run:
+        command: git submodule update --init
     - setup_remote_docker
     - run:
-        name: Make the package
         command: make
     - store_artifacts:
         path: pkg
