@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/build
     docker:
-    - image: dock0/dev
+    - image: dock0/build
       environment:
         PKGFORGE_STATEFILE: '/tmp/pkgforge'
     steps:
