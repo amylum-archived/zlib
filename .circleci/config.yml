@@ -10,6 +10,8 @@ jobs:
     - checkout
     - run:
         command: git submodule update --init
+    - run:
+        command: pacman -S --needed --noconfirm docker
     - setup_remote_docker
     - run:
         command: make
