@@ -1,0 +1,20 @@
+version: 2
+jobs:
+  build:
+    docker:
+    - image: dock0/arch
+      environment:
+        PKGFORGE_STATEFILE: '/tmp/pkgforge'
+    steps:
+    - checkout
+    - setup_remote_docker
+    - run:
+        name: Make the package
+        command: make
+    - store_artifacts:
+        path: pkg
+deployment:
+  release:
+    tag: /.*/
+    commands:
+    - make release
