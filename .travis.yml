@@ -1,0 +1,18 @@
+sudo: required
+dist: trusty
+services:
+- docker
+env:
+- PKGFORGE_STATEFILE=/tmp/pkgforge
+- ARTIFACTS_PATHS=/tmp/artifacts
+script:
+- make
+- cp pkg/* $ARTIFACTS_PATHS/
+deploy:
+  provider: script
+  script: make release
+  on:
+    tags: true
+notifications:
+  slack:
+    secure: KpULYwdJo6luUBPD+jVzb0TohfvhR0NIZFDObL+kqsuOq7Vr3UfnoZDRpYLKtdGmU4TJjILkYwJXWAk4AMemKCtWQSBb8qh5Ch4zZv2tAA4qrpjerak0km8KeoBGeU0hPryal2z5kP36iU3U5YWDfqYaUHhvC4vovP8LuxbA0DziHN3CG47jx8lBZfikRgMDz5Bga+NisaZYcxgOnWy4BNpvYqlbb+abwH/1R+wWiBFWP1mnSUR//meC5cWPsFh5lsSpHHMi4lsXg4wFspIPmTxEddKNAfJLwdbRNfdZjwQUK9XgmBpKd8GZkLNi+3Y2gi5qe2qiFn17rKbe3fVFlF0pRGEw22EtItYota6Y8mTGRxayL8yMPRSGn3cKTnZGb2o5jU3ophkv+Y2Ydz+Bd2qrFrYcNPNnQTWO2oDw6Wn4ajOryISf1cPP4IzHuI4WcPqtDa3cGACzOmrebeHs0ZWoXV6r80wCtMah5/JkgrsbmuMSdf16ZsywgxasqWiB5hHBtDHThEkg6cQ8DjZQKTsHlJtDWzD7CMn8Jyz5psZVkRuPb8CCLZrgKB0aRslJkmkgy+JpJOHLqVCSgvWaS+nhKX9aoy3g9/CqowQukLjgqEfOJnAEAAwTbBmDNCSoAO0iHdh7gBMzRPkSoMwbu7983WyZ99N/g6PGixnMeqQ=
