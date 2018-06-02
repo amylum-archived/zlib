@@ -3,8 +3,9 @@ dist: trusty
 services:
 - docker
 env:
-- PKGFORGE_STATEFILE=/tmp/pkgforge
-- ARTIFACTS_PATHS=/tmp/artifacts
+  global:
+  - PKGFORGE_STATEFILE=/tmp/pkgforge
+  - ARTIFACTS_PATHS=/tmp/artifacts
 script:
 - make
 - cp pkg/* $ARTIFACTS_PATHS/
