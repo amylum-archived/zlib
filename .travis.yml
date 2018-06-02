@@ -5,10 +5,9 @@ services:
 env:
   global:
   - PKGFORGE_STATEFILE=/tmp/pkgforge
-  - ARTIFACTS_PATHS=/tmp/artifacts
+  - ARTIFACTS_PATHS=./pkg
 script:
 - make
-- cp pkg/* $ARTIFACTS_PATHS/
 deploy:
   provider: script
   script: make release
