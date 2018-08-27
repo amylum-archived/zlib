@@ -8,7 +8,7 @@ env:
 script: make
 deploy:
   provider: script
-  script: make release
+  script: travis_terminate 1
   skip_cleanup: true
   on:
     tags: true
