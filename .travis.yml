@@ -9,6 +9,7 @@ script: make
 deploy:
   provider: script
   script: make release
+  skip_cleanup: true
   on:
     tags: true
 notifications:
